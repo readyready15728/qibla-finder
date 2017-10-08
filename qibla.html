@@ -19,7 +19,15 @@
           <div id="map"></div>
         </div>
         <div class="col-md-4">
-          <p>Blah blah blah, here's where the controls and output will go.</p>
+          <form>
+            <div class="form-group">
+              <label for="location">Enter a location or hit enter to place
+                marker at current center of map:</label>
+              <input type="text" class="form-control" id="address">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <div id="qibla"></div>
         </div>
       </div>
     </div>
@@ -27,7 +35,6 @@
     <script src="jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAnAdXjgiEX08RLBbMle9X_WWN4BzNHBg&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAnAdXjgiEX08RLBbMle9X_WWN4BzNHBg&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
