@@ -39,9 +39,18 @@ var initMap = function () {
       });
 
       var qibla = getQibla(marker.getPosition());
+      var direction;
+
+      if (qibla < 0) {
+        qibla = -qibla;
+        direction = 'west';
+      } else {
+        direction = 'east';
+      }
+
       $('#qibla').addClass('alert');
       $('#qibla').addClass('alert-success');
-      $('#qibla').text('Your qibla is ' + qibla.toFixed(2) + ' degrees east from true north.');
+      $('#qibla').text('Your qibla is ' + qibla.toFixed(2) + ' degrees ' + direction + ' from true north.');
     };
 
     $('form').submit(function (event) {
@@ -54,7 +63,7 @@ var initMap = function () {
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
-            map.setZoom(16);
+            map.setZoom(17);
 
             // This needs to go in the callback; otherwise it doesn't act on
             // the current center
